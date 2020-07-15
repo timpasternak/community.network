@@ -17,7 +17,7 @@ description:
     module to wait for a specific condition before returning or timing out if
     the condition is not met.
   - This module does not support running configuration commands.
-    Please use M(exos_config) to configure EXOS devices.
+    Please use M(community.network.exos_config) to configure EXOS devices.
 notes:
   - If a command sent to the device requires answering a prompt, it is possible
     to pass a dict containing I(command), I(answer) and I(prompt). See examples.
@@ -66,19 +66,19 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    exos_command:
+    community.network.exos_command:
       commands: show version
   - name: Run show version and check to see if output contains ExtremeXOS
-    exos_command:
+    community.network.exos_command:
       commands: show version
       wait_for: result[0] contains ExtremeXOS
   - name: Run multiple commands on remote nodes
-    exos_command:
+    community.network.exos_command:
       commands:
         - show version
         - show ports no-refresh
   - name: Run multiple commands and evaluate the output
-    exos_command:
+    community.network.exos_command:
       commands:
         - show version
         - show ports no-refresh
@@ -86,7 +86,7 @@ tasks:
         - result[0] contains ExtremeXOS
         - result[1] contains 20
   - name: Run command that requires answering a prompt
-    exos_command:
+    community.network.exos_command:
       commands:
         - command: 'clear license-info'
           prompt: 'Are you sure.*'

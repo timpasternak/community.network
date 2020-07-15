@@ -29,7 +29,7 @@ options:
         to a given subset. Possible values for this argument include
         all, default, config, and neighbors. Can specify a list of
         values to include a larger subset. Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: "!config"
@@ -37,15 +37,15 @@ options:
 
 EXAMPLES = """
 - name: Collect all facts from the device
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: all
 
 - name: Collect only the config and default facts
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: config
 
 - name: Collect everything exception the config
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: "!config"
 """
 

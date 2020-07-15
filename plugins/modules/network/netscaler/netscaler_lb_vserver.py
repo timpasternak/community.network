@@ -884,7 +884,7 @@ options:
         description:
             - The name of the ssl certificate that is bound to this service.
             - The ssl certificate must already exist.
-            - Creating the certificate can be done with the M(netscaler_ssl_certkey) module.
+            - Creating the certificate can be done with the M(community.network.netscaler_ssl_certkey) module.
             - This option is only applicable only when C(servicetype) is C(SSL).
 
     disabled:
@@ -909,7 +909,7 @@ EXAMPLES = '''
 
 - name: Create a load balancing vserver bound to services
   delegate_to: localhost
-  netscaler_lb_vserver:
+  community.network.netscaler_lb_vserver:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
@@ -932,7 +932,7 @@ EXAMPLES = '''
 
 - name: Create load balancing vserver bound to servicegroup
   delegate_to: localhost
-  netscaler_lb_vserver:
+  community.network.netscaler_lb_vserver:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

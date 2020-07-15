@@ -18,7 +18,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(aruba_config) to configure Aruba devices.
+    Please use M(community.network.aruba_config) to configure Aruba devices.
 extends_documentation_fragment:
 - community.network.aruba
 
@@ -68,22 +68,22 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    aruba_command:
+    community.network.aruba_command:
       commands: show version
 
   - name: Run show version and check to see if output contains Aruba
-    aruba_command:
+    community.network.aruba_command:
       commands: show version
       wait_for: result[0] contains Aruba
 
   - name: Run multiple commands on remote nodes
-    aruba_command:
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces
 
   - name: Run multiple commands and evaluate the output
-    aruba_command:
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces

@@ -31,7 +31,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(voss_config) to configure VOSS devices.
+    Please use M(community.network.voss_config) to configure VOSS devices.
 notes:
   - Tested against VOSS 7.0.0
 options:
@@ -82,22 +82,22 @@ options:
 EXAMPLES = r"""
 tasks:
   - name: Run show sys software on remote devices
-    voss_command:
+    community.network.voss_command:
       commands: show sys software
 
   - name: Run show sys software and check to see if output contains VOSS
-    voss_command:
+    community.network.voss_command:
       commands: show sys software
       wait_for: result[0] contains VOSS
 
   - name: Run multiple commands on remote nodes
-    voss_command:
+    community.network.voss_command:
       commands:
         - show sys software
         - show interfaces vlan
 
   - name: Run multiple commands and evaluate the output
-    voss_command:
+    community.network.voss_command:
       commands:
         - show sys software
         - show interfaces vlan
@@ -106,7 +106,7 @@ tasks:
         - result[1] contains Basic
 
   - name: Run command that requires answering a prompt
-    voss_command:
+    community.network.voss_command:
       commands:
         - command: 'reset'
           prompt: 'Are you sure you want to reset the switch? (y/n)'

@@ -25,7 +25,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: '!config'
@@ -44,18 +44,18 @@ vars:
 
 ---
 - name: Collect all facts from the device
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset: all
     provider: "{{ cli }}"
 
 - name: Collect only the config and default facts
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset:
       - config
     provider: "{{ cli }}"
 
 - name: Do not collect hardware facts
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset:
       - "!hardware"
     provider: "{{ cli }}"

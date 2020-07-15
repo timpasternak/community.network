@@ -15,7 +15,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(nos_config) to configure NOS devices.
+    Please use M(community.network.nos_config) to configure NOS devices.
 notes:
   - Tested against NOS 7.2.0
   - If a command sent to the device requires answering a prompt, it is possible
@@ -65,22 +65,22 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    nos_command:
+    community.network.nos_command:
       commands: show version
 
   - name: Run show version and check to see if output contains NOS
-    nos_command:
+    community.network.nos_command:
       commands: show version
       wait_for: result[0] contains NOS
 
   - name: Run multiple commands on remote nodes
-    nos_command:
+    community.network.nos_command:
       commands:
         - show version
         - show interfaces
 
   - name: Run multiple commands and evaluate the output
-    nos_command:
+    community.network.nos_command:
       commands:
         - show version
         - show interface status
@@ -88,7 +88,7 @@ tasks:
         - result[0] contains NOS
         - result[1] contains Te
   - name: Run command that requires answering a prompt
-    nos_command:
+    community.network.nos_command:
       commands:
         - command: 'clear sessions'
           prompt: 'This operation will logout all the user sessions. Do you want to continue (yes/no)?:'

@@ -308,7 +308,7 @@ options:
     monitorbindings:
         description:
             - A list of monitornames to bind to this service
-            - Note that the monitors must have already been setup possibly using the M(netscaler_lb_monitor) module or some other method
+            - Note that the monitors must have already been setup possibly using the M(community.network.netscaler_lb_monitor) module or some other method
         suboptions:
             monitorname:
                 description:
@@ -342,7 +342,7 @@ EXAMPLES = '''
 
 - name: Setup http service with ip members
   delegate_to: localhost
-  netscaler_servicegroup:
+  community.network.netscaler_servicegroup:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
